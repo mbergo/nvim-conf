@@ -726,7 +726,7 @@ GitHub Copilot AI completion, integrated natively into Neovim. Suggestions appea
 | `<M-w>` (Alt+w) | Accept the next **word** of the suggestion |
 | `<M-e>` (Alt+e) | Accept the next **line** of the suggestion |
 | `<M-]>` (Alt+]) | Cycle to the **next** suggestion |
-| `<M-[>` (Alt+[) | Cycle to the **previous** suggestion |
+| `<M-\>` (Alt+\) | Cycle to the **previous** suggestion |
 | `<C-]>` (Ctrl+]) | **Dismiss** the current suggestion |
 
 ### Copilot Panel Keymaps
