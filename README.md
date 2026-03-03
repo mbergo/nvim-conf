@@ -26,12 +26,13 @@
 17. [Plugin — mini.surround (brackets & quotes)](#17-plugin--minisurround-brackets--quotes)
 18. [Plugin — todo-comments](#18-plugin--todo-comments)
 19. [Plugin — Claude Code (claudecode.nvim)](#19-plugin--claude-code-claudecodenvim)
-20. [Plugin — lazy.nvim (plugin manager)](#20-plugin--lazynvim-plugin-manager)
-21. [Plugin — Mason (LSP installer)](#21-plugin--mason-lsp-installer)
-22. [Plugin — conform.nvim (formatting)](#22-plugin--conformnvim-formatting)
-23. [Diagnostics (errors & warnings)](#23-diagnostics-errors--warnings)
-24. [Useful Built-in Commands](#24-useful-built-in-commands)
-25. [Installed Plugins Summary](#25-installed-plugins-summary)
+20. [Plugin — Copilot (copilot.lua)](#20-plugin--copilot-copilotlua)
+21. [Plugin — lazy.nvim (plugin manager)](#21-plugin--lazynvim-plugin-manager)
+22. [Plugin — Mason (LSP installer)](#22-plugin--mason-lsp-installer)
+23. [Plugin — conform.nvim (formatting)](#23-plugin--conformnvim-formatting)
+24. [Diagnostics (errors & warnings)](#24-diagnostics-errors--warnings)
+25. [Useful Built-in Commands](#25-useful-built-in-commands)
+26. [Installed Plugins Summary](#26-installed-plugins-summary)
 
 ---
 
@@ -713,7 +714,46 @@ Inside the Claude terminal, press `<Esc><Esc>` to go back to Normal mode in Neov
 
 ---
 
-## 20. Plugin — lazy.nvim (plugin manager)
+## 20. Plugin — Copilot (copilot.lua)
+
+GitHub Copilot AI completion, integrated natively into Neovim. Suggestions appear inline as you type in Insert mode. Requires authentication via `:Copilot auth`.
+
+### Inline Suggestion Keymaps (Insert mode)
+
+| Key | Action |
+|---|---|
+| `<M-l>` (Alt+l) | Accept the full suggestion |
+| `<M-w>` (Alt+w) | Accept the next **word** of the suggestion |
+| `<M-e>` (Alt+e) | Accept the next **line** of the suggestion |
+| `<M-]>` (Alt+]) | Cycle to the **next** suggestion |
+| `<M-[>` (Alt+[) | Cycle to the **previous** suggestion |
+| `<C-]>` (Ctrl+]) | **Dismiss** the current suggestion |
+
+### Copilot Panel Keymaps
+
+Open the panel with `<M-CR>` (Alt+Enter) **while in Insert mode** to browse multiple suggestions at once. Once the panel is open, use the keys below (Normal mode inside the panel).
+
+| Key | Action |
+|---|---|
+| `<M-CR>` (Alt+Enter) | **Open** the Copilot suggestions panel |
+| `<CR>` | **Accept** the focused suggestion |
+| `]]` | Jump to **next** suggestion in panel |
+| `[[` | Jump to **previous** suggestion in panel |
+| `gr` | **Refresh** suggestions in panel |
+
+### Commands
+
+| Command | Action |
+|---|---|
+| `:Copilot auth` | Authenticate with GitHub |
+| `:Copilot enable` | Enable Copilot |
+| `:Copilot disable` | Disable Copilot |
+| `:Copilot status` | Show current status |
+| `:Copilot panel` | Open the suggestions panel |
+
+---
+
+## 21. Plugin — lazy.nvim (plugin manager)
 
 | Command | Action |
 |---|---|
@@ -730,7 +770,7 @@ Inside the Claude terminal, press `<Esc><Esc>` to go back to Normal mode in Neov
 
 ---
 
-## 21. Plugin — Mason (LSP installer)
+## 22. Plugin — Mason (LSP installer)
 
 Mason installs and manages language servers, formatters, and linters.
 
@@ -745,7 +785,7 @@ Mason installs and manages language servers, formatters, and linters.
 
 ---
 
-## 22. Plugin — conform.nvim (formatting)
+## 23. Plugin — conform.nvim (formatting)
 
 Automatically formats files on save. Also available manually.
 
@@ -759,7 +799,7 @@ Automatically formats files on save. Also available manually.
 
 ---
 
-## 23. Diagnostics (errors & warnings)
+## 24. Diagnostics (errors & warnings)
 
 When an LSP is active, errors and warnings appear inline and in the gutter.
 
@@ -781,7 +821,7 @@ When an LSP is active, errors and warnings appear inline and in the gutter.
 
 ---
 
-## 24. Useful Built-in Commands
+## 25. Useful Built-in Commands
 
 ### Help System
 
@@ -818,7 +858,7 @@ When an LSP is active, errors and warnings appear inline and in the gutter.
 
 ---
 
-## 25. Installed Plugins Summary
+## 26. Installed Plugins Summary
 
 | Plugin | Purpose |
 |---|---|
@@ -841,6 +881,7 @@ When an LSP is active, errors and warnings appear inline and in the gutter.
 | `nvim-treesitter/nvim-treesitter` | Syntax highlighting and code parsing |
 | `folke/snacks.nvim` | Terminal provider (used by claudecode) |
 | `coder/claudecode.nvim` | Claude Code CLI integration |
+| `zbirenbaum/copilot.lua` | GitHub Copilot AI inline suggestions |
 
 ---
 
@@ -862,6 +903,10 @@ LEADER (Space):
   sf=files  sg=grep  s.=recent  <space>=buffers  sh=help
   /=buffer-search  f=format  q=quickfix
   ac=Claude  af=Claude-focus  as=send-sel  aa=add-file
+
+COPILOT (Insert mode):
+  <M-l>=accept  <M-w>=accept-word  <M-e>=accept-line
+  <M-]>=next  <M-[>=prev  <C-]>=dismiss  <M-CR>=open-panel
 
 LSP:    grd=def  grr=refs  grn=rename  gra=action  K=hover
 
